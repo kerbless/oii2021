@@ -1,1 +1,2 @@
 Algoritmo: insieme di istruzioni finite, non ambigue, che portano un risultato deterministico per un problema generale.
+Strutture dati: 
