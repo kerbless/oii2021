@@ -1,3 +1,4 @@
+// https://training.olinfo.it/#/task/ois_gasoline/statement
 #include <iostream>
 using namespace std; // 4 6
 
