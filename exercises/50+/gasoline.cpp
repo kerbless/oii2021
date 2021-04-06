@@ -24,6 +24,7 @@ int main() {
         for (i = station; i < bestNext; i++) gasToBuy += gasToNext[i]; // calculates needed gas to bestNext
         spent += gasToBuy*price[station]; // calculates spent money to get the gasToBuy
 
+        // DEBUG
         cout << "station = " << station << endl;
         cout << "bestNext = " << bestNext << endl;
         cout << "gasToNext = " << gasToNext[station] << endl;
