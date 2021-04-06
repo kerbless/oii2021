@@ -1,1 +1,8 @@
-3025
+station = 0
+bestNext = 3
+gasToNext = 5
+gasToBuy = 15
+price = 1
+spent = 15
+
+15
