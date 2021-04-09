@@ -1,38 +1,30 @@
-
 //https://training.olinfo.it/#/task/piastrelle/statement
 #include <iostream>
-#include <string>
+#include <vector>
 using namespace std;
 
-void ris(int a[], int N) {
-    string small = "[O]", big = "[OOOO]";
-    int i;
-    for (i = 0; i < N; i++) {
-        if (a[i] == 1) cout << small;
-        else cout << big;
+void prin(vector<int> vect) {
+    vector<int>::iterator it;
+    for(it = vect.begin(); it < vect.end(); it++) {
+        if (*it == 0) cout << "[O]";
+        else cout << "[OOOO]";
     }
-    cout << endl;
 }
 
-int backtrack(int n) {
-    if (n == 2) return 1;
-    else if (n == 1) return 0;
-    return backtrack(n-1);
+vector<int> backtrack(vector<int> vect, int size) {
+    int pushing_value = 0;
+    if (vect.size() < size) {
+        vect.push_back(pushing_value);
+        return backtrack(vect, size);
+    }
+    else return vect;
 }
 
 int main() {
     freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-    int N, i, j; 
-    cin >> N;
-    int a[N];
-    for(i = 0; i < N; i++) {
-        for(j = 0; j < N; j++) {
-            a[i] = 0;
-            a[j] = 1;
-            ris(a, N);
-        }
-        
-    }
+    int N; cin >> N;
+    vector<int> vect;
+    prin(backtrack(vect, N));
     return 0;
 }
