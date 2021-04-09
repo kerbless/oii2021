@@ -12,12 +12,23 @@ void prin(vector<int> vect) {
 }
 
 vector<int> backtrack(vector<int> vect, int size) {
-    int pushing_value = 0;
+    cout << size << " " << endl;
+    
+    
+    
+    
     if (vect.size() < size) {
-        vect.push_back(pushing_value);
+        if {
+            vect.push_back(1);
+            size--;
+        }
+        else vect.push_back(0);
         return backtrack(vect, size);
     }
-    else return vect;
+    else {
+        vect.push_back(0); prin(vect);
+        return vect; // avoid warning
+    }
 }
 
 int main() {
@@ -25,6 +36,6 @@ int main() {
 	freopen("output.txt", "w", stdout);
     int N; cin >> N;
     vector<int> vect;
-    prin(backtrack(vect, N));
+    backtrack(vect, N);
     return 0;
 }
