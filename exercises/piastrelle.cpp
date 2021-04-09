@@ -14,7 +14,9 @@ void prin(vector<int> vect) {
 }
 
 vector<int> backtrack(vector<int> vect, int size) {
-    
+    if 
+    backtrack(vect, --size);
+    prin(vect);
 }
 
 int main() {
