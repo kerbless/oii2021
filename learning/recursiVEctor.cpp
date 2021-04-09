@@ -11,9 +11,8 @@ void printVector(vector<int> vect) {
 }
 
 vector<int> recursive(vector<int> vect, int size) {
-    int pushing_value = 0;
     if (vect.size() < size) {
-        vect.push_back(pushing_value);
+        vect.push_back(0);
         return recursive(vect, size);
     }
     else return vect;
