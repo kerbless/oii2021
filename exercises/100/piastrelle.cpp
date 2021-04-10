@@ -6,17 +6,26 @@ using namespace std;
 void prin(vector<int> vect) {
     vector<int>::iterator it;
     for(it = vect.begin(); it < vect.end(); it++) {
-        cout << *it << " ";
-        // if (*it == 0) cout << "[O]";
-        // else cout << "[OOOO]";
+        if (*it == 0) cout << "[O]";
+        else cout << "[OOOO]";
     }
     cout << endl;
 }
 
-vector<int> backtrack(vector<int> vect, int size) {
-    if 
-    backtrack(vect, --size);
-    prin(vect);
+void backtrack(vector<int> vect, int size) {
+    if (vect.size() == size) {
+        prin(vect);
+        return;
+    } 
+    else if (vect.size() < size) {
+        vect.push_back(0);
+        backtrack(vect, size);
+        vect.pop_back();
+        vect.push_back(1);
+        backtrack(vect, --size);
+        return;
+    }
+     
 }
 
 int main() {

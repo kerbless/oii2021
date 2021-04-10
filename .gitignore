@@ -52,3 +52,4 @@ Mkfile.old
 dkms.conf
 exercises/output.txt
 exercises/input.txt
+exercises/tmprun.cpp

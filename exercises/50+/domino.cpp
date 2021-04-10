@@ -49,13 +49,14 @@ int main() {
     // the real stuff
     int tot = N;
     for (i = 0; i < N; i++) { 
-        for (j = i+1; j < N; j++) {
-            connect(cards[i], cards[j]); // trying all connections
-            info(cards, N); cout << i << j << endl << endl; // useful info for debugging
+        for (j = 0; j < N; j++) {
+            if (i != j) { // avoid self test
+                connect(cards[i], cards[j]); // trying all connections
+                // info(cards, N); cout << i << j << " " << tot << endl << endl; // useful info for debugging
+            }
         }
         if (cards[i].c[0] == false && cards[i].c[1] == false) tot--;
     }
     cout << tot; 
     return 0;
-    
 }
