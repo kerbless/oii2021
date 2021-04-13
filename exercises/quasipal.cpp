@@ -2,13 +2,12 @@
 #include <iostream>
 
 bool pali(char word[], int start, int end) {
-    
-    if (end-start <= 0) return; // finished
+    if (end-start <= 0) return false; // finished
     else if (word[start] == word[end] || word[start] == '0' || word[end] == '0') {
         return true;
     }
-    else return;
-    return pali(word, start+1, end-1);
+    else return false;
+    pali(word, start+1, end-1);
 }
 
 int main() {
@@ -24,16 +23,13 @@ int main() {
     }
     //END INPUT---------------------
 
+    //TEST
+    int result = 0;
     for (int i = 0; i < N; i++) {
-        std::cout << pali(matrix[i], 0, M-1); // start with full size
+        result -= pali(matrix[i], 0, M-1); // start with full size
     }
 
     //START OUTPUT------------------
-    for (int i = 0; i < M; i++) {
-        for (int j = 0; j < N; j++) {
-            std::cout << matrix[j][i];
-        }
-        std::cout << std::endl;
-    }
+    std::cout << result;
     return 0;
 }
