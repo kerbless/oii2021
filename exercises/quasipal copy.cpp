@@ -1,14 +1,21 @@
 //https://training.olinfo.it/#/task/quasipal/statement
 #include <iostream>
 
-bool pali(char word[], int start, int end) {
+void pali(char word[], int start, int end) {
     
+    //DEBUG
+    std::cout << "pali (";
+    for (int i = start; i <= end; i++) {
+        std::cout << word[i];
+    }
+    std::cout << ")" << std::endl;
+
     if (end-start <= 0) return; // finished
     else if (word[start] == word[end] || word[start] == '0' || word[end] == '0') {
-        return true;
+        std::cout << "OK AT " << start << end << std::endl;
     }
-    else return;
-    return pali(word, start+1, end-1);
+    else std::cout << "BAD AT " << start << end << std::endl;
+    pali(word, start+1, end-1);
 }
 
 int main() {
@@ -25,7 +32,11 @@ int main() {
     //END INPUT---------------------
 
     for (int i = 0; i < N; i++) {
-        std::cout << pali(matrix[i], 0, M-1); // start with full size
+
+        //DEBUG
+        std::cout << "\nCalling pali with matrix " << i << " and s-e 0-" << M-1 << std::endl;
+        
+        pali(matrix[i], 0, M-1); // start with full size
     }
 
     //START OUTPUT------------------
