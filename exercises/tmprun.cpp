@@ -1,6 +1,4 @@
-//DEBUG
-    std::cout << "pali (";
-    for (int i = start; i <= end; i++) {
-        std::cout << word[i];
-    }
-    std::cout << ")" << std::endl;
+if (fibsum ==  N) {
+    //     for (int i = 0; i < fib.size(); i++) solution.push_back(1);
+    //     N = -1; // skips standard solution
+    // }
