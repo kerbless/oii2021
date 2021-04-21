@@ -2,12 +2,16 @@
 #include <iostream>
 
 bool pali(char word[], int start, int end) {
-    if (end-start <= 0) return false; // finished
-    else if (word[start] == word[end] || word[start] == '0' || word[end] == '0') {
+    if (end-start <= 1) return true; // finished
+    if (word[start] == word[end] || word[start] == '0' || word[end] == '0') {
         return true;
+        pali(word, start+1, end-1);
     }
     else return false;
-    pali(word, start+1, end-1);
+}
+
+bool combs(char matrix[][], int start, int end, int target) {
+    
 }
 
 int main() {
@@ -23,10 +27,9 @@ int main() {
     }
     //END INPUT---------------------
 
-    //TEST
-    int result = 0;
+    //test all rows of this combination
     for (int i = 0; i < N; i++) {
-        result -= pali(matrix[i], 0, M-1); // start with full size
+        result += pali(matrix[i], 0, M-1); // start with full size
     }
 
     //START OUTPUT------------------
