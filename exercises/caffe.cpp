@@ -10,25 +10,25 @@ int main() {
     map<int, int> time; 
     for(i = 0; i < N; i++) {
         cin >> a >> b;
-        time.insert(pair<int,int>(a, b));
+        time.insert(pair<int,int>(a, b)); //make pair!
     }
 
     map<int,int>::iterator it, first = time.begin(), last;
     for (last = time.begin(); last != time.end(); last++) {
         presents++;
-        cout << "\npres " << presents;
+        // cout << "\npres " << presents;
         for(it = first; it != last; it++) {
-            cout << "\ndiff " << it->second << " < " << last->first;
+            // cout << "\ndiff " << it->second << " < " << last->first;
             if (it->second < last->first) {
                 first++;
                 presents--;
-                cout << "t";
+                // cout << "t";
             }
-            else cout << "f";
+            // else cout << "f";
         }
         coffee += presents;
-        cout << "\npres " << presents;
-        cout << "\ncoff " << coffee << "\n";
+        // cout << "\npres " << presents;
+        // cout << "\ncoff " << coffee << "\n";
     }
 
     cout << coffee;
