@@ -10,7 +10,7 @@ int main() {
     map<int, int> time; 
     for(i = 0; i < N; i++) {
         cin >> a >> b;
-        time.insert(pair<int,int>(a, b)); //make pair!
+        time.insert(make_pair(a, b));
     }
 
     map<int,int>::iterator it, first = time.begin(), last;
