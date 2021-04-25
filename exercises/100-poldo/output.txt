@@ -1,0 +1,23 @@
+
+ciclo i 1
+ciclo j 0 conf 6 < 3 && 0 < 1
+	max[i] 1-- max 1
+
+ciclo i 2
+ciclo j 1 conf 7 < 6 && 0 < 1
+ciclo j 0 conf 7 < 3 && 0 < 1
+	max[i] 1-- max 1
+
+ciclo i 3
+ciclo j 2 conf 5 < 7 && 0 < 1
+ciclo j 1 conf 5 < 6 && 1 < 1
+ciclo j 0 conf 5 < 3 && 1 < 1
+	max[i] 2-- max 2
+
+ciclo i 4
+ciclo j 3 conf 3 < 5 && 0 < 2
+ciclo j 2 conf 3 < 7 && 2 < 1
+ciclo j 1 conf 3 < 6 && 2 < 1
+ciclo j 0 conf 3 < 3 && 2 < 1
+	max[i] 3-- max 3
+3
