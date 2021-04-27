@@ -1,0 +1,7 @@
+
+sub comb with 0-1 sized 2 = 2
+
+sub comb with 2-3 sized 2 = 2
+
+sub comb with 4-5 sized 2 = 2
+6
