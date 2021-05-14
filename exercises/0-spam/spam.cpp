@@ -2,57 +2,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+inline bool check(string word, string set[], int count) {
+    for (int i = 0; i < count; i++)
+        if (word == set[i]) return true;
+    return false;
+}
+
 int main() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    int nbad;
-    cin >> nbad;
-    string bad[nbad], tmpString;
-    for (int i = 0; i < nbad; i++) {
-        cin >> tmpString;
-        bad[i] = tmpString;
-    }
+    /* variables */
+    int nwords; // will be used to store number of words in each email
+    int goodmails = 0, badmails = 0; // result variables
+    string word; // will store a word temporarily
 
-    int ngood;
-    cin >> ngood;
+    /* get the set of bad words */
+    int nbad; cin >> nbad; // number of bad words
+    string bad[nbad], tmpString; // array of bad words + temp var
+    for (int i = 0; i < nbad; i++) cin >> bad[i];
+
+    /* get the set of good words */
+    int ngood; cin >> ngood;
     string good[ngood];
-    for (int i = 0; i < ngood; i++) {
-        cin >> tmpString;
-        good[i] = tmpString;
-    }
+    for (int i = 0; i < ngood; i++) cin >> good[i];
 
-    int nmail, nwords, goodmails = 0, badmails = 0;
-    cin >> nmail;
-    for (int i = 0; i < nmail; i++) { // for every mail
-        bool positive = false, negative = false;
+    /* get number of emails */
+    int nmail; cin >> nmail;
+
+    /* for every email */
+    for (int i = 0; i < nmail; i++) {
+        bool goodword = false, badword = false; // reset flags for words
         cin >> nwords;
-        for (int j = 0; j < nwords; j++) { // for every word
-            cin >> tmpString; // take word
-            if (!positive) { // if no positive found yet
-                for (int k = 0; k < ngood; k++) { // test all good words
-                    if (tmpString == good[k])  {
-                        //cout << "found good word \"" << tmpString << "\" in mail " << i+1 << endl; 
-                        positive = true;
-                        break;
-                    }
-                }
-            }
-            if (!negative) { // if no negative found yet
-                for (int k = 0; k < nbad; k++) {
-                    if (tmpString == bad[k])  {
-                        //cout << "found bad word \"" << tmpString << "\" in mail " << i+1 << endl; 
-                        negative = true;
-                        break;
-                    }
-                }
-            }
-            if (positive && negative) break; //dubious
+
+        /* for every word */
+        for (int j = 0; j < nwords; j++) {
+            cin >> word;
+
+            if (goodword && badword) continue; // the email is dubious
+
+            /* if no goodword found yet, test the current "j" word with all good words */
+            if (!goodword) if(check(word, good, ngood)) goodword = true;
+
+            /* if no badword found yet, test the current "j" word with all bad words */
+            if (!badword) if(check(word, bad, nbad)) badword = true;
         }
-        if (!(positive && negative )) { // not dubious
-            if (positive) goodmails += 1;
-            else if (negative) badmails += 1;
-        }
+        if (goodword && !badword) goodmails += 1;
+        if (badword && !goodword) badmails += 1;
     }
 
     cout << badmails << " " << goodmails;
