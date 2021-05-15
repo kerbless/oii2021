@@ -1,7 +1,6 @@
 //
 // CODA CON PRIORITA, ESTRAGGO IL NODO DI COSTO MINORE, SE HA MENO DI DUE FIGLI LO RIATTACCO
-#include <iostream>
-#include <map>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
