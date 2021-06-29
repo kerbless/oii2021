@@ -5,6 +5,7 @@ using namespace std;
 int main() {
     freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-    // NEED COMMUTATIONS TO PROCEED
+	cout << "hello, world!!!!!";
     return 0;
+
 }
