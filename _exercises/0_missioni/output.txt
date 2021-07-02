@@ -1,0 +1,12 @@
+@ u0 m0 i0
+@ u3 m1 i1
+@ u3 m1 i2
+@ u3 m1 i3
+@ u3 m1 i4
+@ u9 m2 i4
+@ u6 m2 i3
+@ u6 m2 i4
+@ u12 m3 i4
+@ u7 m2 i2
+@ u7 m2 i3
+3
