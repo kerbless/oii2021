@@ -1,4 +1,3 @@
-//https://training.olinfo.it/#/task/quasipal/statement
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -39,12 +38,6 @@ void perm(vector<string> data, int head, int row, int col) {
 int main() {
     freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-    int row, col;
-    cin >> row >> col;
-    vector<string> data(row);
-    for (int i = 0; i < row; i++)
-        cin >> data[i];
     
-    cout << are_quasipal(data, row, col);
     return 0;
 }
