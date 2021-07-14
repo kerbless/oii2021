@@ -11,7 +11,7 @@ using namespace std;
 3`3  4`2  
 */
 
-void printgraph(vector<multimap<int, int>> graph) {
+void printgraph(vector<multimap<int, int> > graph) {
     for (int i = 0; i < graph.size(); i++) {
         for (multimap<int, int>::iterator it = graph[i].begin(); it != graph[i].end(); it++) {
             cout << (*it).first << "`" << it->second << "  ";
@@ -20,7 +20,7 @@ void printgraph(vector<multimap<int, int>> graph) {
     }
 }
 
-void DFS(vector<multimap<int, int>> graph) {
+void DFS(vector<multimap<int, int> > graph) {
     vector<bool> visited(graph.size(), false);
     int i = 0;
     stack<int> s;
@@ -49,7 +49,7 @@ int main() {
     
     int n_nodes, n_links;
     cin >> n_nodes >> n_links;
-    vector<multimap<int, int>> graph(n_nodes); // vector of nodes, every node has a multimap of links (weight -> target)
+    vector<multimap<int, int> > graph(n_nodes); // vector of nodes, every node has a multimap of links (weight -> target)
     int node1, node2, weight;
     for (int i = 0; i < n_links; i++) {
         cin >> node1 >> node2 >> weight;
