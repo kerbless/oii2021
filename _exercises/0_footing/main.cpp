@@ -22,25 +22,41 @@ void printgraph(vector<multimap<int, int> > graph) {
 
 void DFS(vector<multimap<int, int> > graph) {
     vector<bool> visited(graph.size(), false);
-    int i = 0;
+    int prev = 0, i = 0;
     stack<int> s;
     multimap<int,int>::iterator it; 
+    int ex = 0;
     do {
-        s.push(i);
+        
+    }
+
+    do {
+        if(!visited[i]) s.push(i);
         visited[s.top()] = true;
         it = graph[s.top()].begin(); //it = lowest weight (begin) target from current node (top)
         while (true) {
             i = (it->second)-1; //i = next node index
-            if (not visited[i]) break; //found unvisited node
-            else if (it == graph[s.top()].end()) cout << "ED"; //no new node found
-            else it++; //trying next node
+            cout << " " << prev+1 << i+1;
+            //if (visited[i] == true) it++; //node already visited, trying next
+            if (i == prev) it++; //node already visited, trying next
+            if (visited[i]) { 
+                break;
+            }
+            else break; //found unvisited node
+            if (it == graph[s.top()].end()) { //no new node found
+                s.pop();
+                i = s.top();
+                cout << " e " << i+1;
+                break;
+            }
         }
 
         //debug
-        cout << "\n";
+        cout << "  " << s.top()+1 << " -> " << i+1 << "  ";
         for (int k = 0; k < graph.size(); k++) cout << visited[k] << " ";
-
-    } while (!s.empty() and i != 6); 
+        ex++;
+        cout << "\n";
+    } while (ex < 10); 
 }
 
 int main() {
