@@ -33,12 +33,13 @@ void DFS(vector<multimap<int, int> > graph) {
         for (multimap<int, int>::iterator it = graph[s.back()].begin(); it != graph[s.back()].end(); it++) {
             if (visited[it->second-1]) { //visited
                 if (it->second-1 != s.end()[-2]) { //not parent
-                    cout << " cycle ";// << s.back()+1 << it->second;
-                    int i = 0, e = it->second-1;
-                    while (e != s.back()) {
+                    cout << " cycle " << it->second << "->";// << s.back()+1 << it->second;
+                    int i = s.size()-1; //index of last element
+                    int e = s.back();
+                    while (e != it->second-1) {
                         cout << s[i]+1;
                         e = s[i];
-                        i++;
+                        i--;
                     }
                 }
             }
