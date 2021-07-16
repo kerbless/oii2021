@@ -22,35 +22,20 @@ void printgraph(vector<multimap<int, int> > graph) {
 
 void DFS(vector<multimap<int, int> > graph) {
     vector<bool> visited(graph.size(), false);
-    vector<int> s;
-    bool found;
-    int next;
-    s.push_back(0);
+    stack<int> s;
+    bool allUnvisited;
+    s.push(0);
     while(true) {
-        cout << "\n" << s.back()+1;
-        found = false;
-        visited[s.back()] = true;
-        for (multimap<int, int>::iterator it = graph[s.back()].begin(); it != graph[s.back()].end(); it++) {
-            if (visited[it->second-1]) { //visited
-                if (it->second-1 != s.end()[-2]) { //not parent
-                    cout << " cycle ";// << s.back()+1 << it->second;
-                    int i = 0, e = it->second-1;
-                    while (e != s.back()) {
-                        cout << s[i]+1;
-                        e = s[i];
-                        i++;
-                    }
-                }
+        cout << s.top()+1 << " ";
+        allUnvisited = true;
+        visited[s.top()] = true;
+        for (multimap<int, int>::iterator it = graph[s.top()].begin(); it != graph[s.top()].end(); it++)
+            if (!visited[(*it).second-1]) {
+                s.push(it->second-1);
+                allUnvisited = false;
+                break;
             }
-            else { //unvisited
-                if (!found) {
-                    next = it->second-1;
-                    found = true;
-                }
-            }
-        }
-        if (found) s.push_back(next);
-        else s.pop_back();
+        if (allUnvisited) s.pop();
         if (all_of(visited.begin(), visited.end(), [](bool i){return i;}) or s.empty()) break;
     };
 }
