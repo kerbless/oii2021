@@ -21,21 +21,22 @@ void printgraph(vector<multimap<int, int> > graph) {
 }
 
 void DFS(vector<multimap<int, int> > graph) {
-    vector<bool> visited(graph.size(), false);
-    vector<int> s;
+    vector<bool> visited(graph.size(), false); // vector used to mark visited nodes (by index)
+    vector<int> s; // vector used to store visited nodes in order
     bool found;
     int next;
     s.push_back(0);
     while(true) {
         cout << "\n" << s.back()+1;
         found = false;
-        visited[s.back()] = true;
+        visited[s.back()] = true; // using the node as an index to mark it visited in the vector
         for (multimap<int, int>::iterator it = graph[s.back()].begin(); it != graph[s.back()].end(); it++) {
-            if (visited[it->second-1]) { //visited
-                if (it->second-1 != s.end()[-2]) { //not parent
+            // iterating through all the neighbours of current node
+            if (visited[it->second-1]) { // if neighboud VISITED
+                if (it->second-1 != s.end()[-2]) { //and neighbour not parent (non-penultimate) -> cycle found
                     cout << " cycle " << it->second << "->";// << s.back()+1 << it->second;
-                    int i = s.size()-1; //index of last element
-                    int e = s.back();
+                    int i = s.size()-1; // 
+                    int e = s.back(); //current node
                     while (e != it->second-1) {
                         cout << s[i]+1;
                         e = s[i];
@@ -43,7 +44,7 @@ void DFS(vector<multimap<int, int> > graph) {
                     }
                 }
             }
-            else { //unvisited
+            else { //if neighbour UNVISITED
                 if (!found) {
                     next = it->second-1;
                     found = true;
