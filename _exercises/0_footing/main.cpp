@@ -21,6 +21,7 @@ void printgraph(vector<multimap<int, int> > graph) {
 }
 
 void DFS(vector<multimap<int, int> > graph) {
+    multimap<int, int>::iterator it, it2;
     vector<bool> visited(graph.size(), false); // vector used to mark visited nodes (by index)
     vector<int> s; // vector used to store visited nodes in order
     bool found;
@@ -30,18 +31,12 @@ void DFS(vector<multimap<int, int> > graph) {
         cout << "\n" << s.back()+1;
         found = false;
         visited[s.back()] = true; // using the node as an index to mark it visited in the vector
-        for (multimap<int, int>::iterator it = graph[s.back()].begin(); it != graph[s.back()].end(); it++) {
+        for (it = graph[s.back()].begin(); it != graph[s.back()].end(); it++) {
             // iterating through all the neighbours of current node
             if (visited[it->second-1]) { // if neighboud VISITED
                 if (it->second-1 != s.end()[-2]) { //and neighbour not parent (non-penultimate) -> cycle found
                     cout << " cycle " << it->second << "->";// << s.back()+1 << it->second;
-                    int i = s.size()-1; // 
-                    int e = s.back(); //current node
-                    while (e != it->second-1) {
-                        cout << s[i]+1;
-                        e = s[i];
-                        i--;
-                    }
+                    // here I need to iterate trough all neighbour of the neighbour I found, using recursion? or using something to find the starting node again from any path that's already visited. (in the first case something like 1235, 125, 214, 234)
                 }
             }
             else { //if neighbour UNVISITED
