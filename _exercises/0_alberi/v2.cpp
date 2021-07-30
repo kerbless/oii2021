@@ -20,7 +20,7 @@ void solve(vector<int> pre, vector<int> post) {
         right.push_back(post[i]);
     }    
     cout << "\n\nleft  "; printVect(left);
-    cout << "\nright "; printVect(right); 
+    cout << "\nright "; printVect(right);   
     visiting++;
     if (!left.empty()) solve(pre, left);
     if (!right.empty()) solve(pre, right);
