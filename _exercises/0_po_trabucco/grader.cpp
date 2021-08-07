@@ -1,13 +1,12 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "trabucco.cpp"
 
 #define MAXN 2000
 
 static int N, M, K;
 static int X[MAXN * MAXN], Y[MAXN * MAXN];
-
-int ContaPercorsi(int, int, int, int*, int*);
 
 int main() {
 	FILE * fin, * fout;
